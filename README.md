@@ -178,6 +178,7 @@ semanage secure_mode_policyload on # set the boolean in memory
 
 
 /etc/selinux/conf
+
 /etc/selinux/targeted/contexts/files
 
 getenforce
@@ -191,14 +192,19 @@ id -Z
 aussearch -m avc -ts recent
 
 restorecon /etc/shadow
+
 chcon -t shadow_t /etc/shadow
 
 getsebool -a
+
 semanage boolean -l
+
 setsebool sdfsf on (temporary setting)
+
 setsebool -P sdfsdf on (permanent setting)
 
 semanage port -l
+
 semanage port -a -t ssh_port_t  -p tcp 2022
 
 # Systemd
@@ -206,18 +212,19 @@ semanage port -a -t ssh_port_t  -p tcp 2022
 
 # Firewall
 
+```
 firewall-cmd --list-all
 
 firewall-cmd --get-active-zones
 firewall-cmd --list-all-zones
-
+```
 Add a service
-firewall-cmd --add-service=http
+```firewall-cmd --add-service=http
 
 Restart firewalld on CentOS 7
 
 Add a service permanent
-firewall-cmd --add-service=http --permanent
+```firewall-cmd --add-service=http --permanent
 
 
 
