@@ -134,6 +134,28 @@ Modes:
 - Permissive (violations logged)
 - Disabled (SELinux not operational and no logging)
 
+## Tools
+
+These tools are installed by default:
+
+- semanage
+- sestatus
+
+These tools are required to customize and diagnose SELinux
+
+- policycoreutils
+- policycoreutils-devel
+- setools-console
+- attr
+
+To install the tools execute this command:
+
+```bash
+yum install policycoreutils policycoreutils-devel setools-console.x86_64 attr
+```
+
+attr gives access to getfattr
+
 ## Read the SELinux mode
 
 getenforce
@@ -175,6 +197,40 @@ semanage boolean -l | grep secure_mode_policyload
 
 semanage secure_mode_policyload on # set the boolean in memory
 
+## Type Enforcement
+
+Display the SELinux context of a process:
+
+```
+ps -Zp $(pgrep httpd)
+```
+
+```
+➜  pj ps -Zp $(pgrep httpd)
+LABEL                              PID TTY      STAT   TIME COMMAND
+system_u:system_r:httpd_t:s0     75164 ?        Ss     0:01 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     75165 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     75166 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     75167 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     75168 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0     75169 ?        S      0:00 /usr/sbin/httpd -DFOREGROUND
+
+```
+
+For the Targeted Mode, only the Type, e.g. `httpd_t` is of interest.
+The user, role and MLS-range field are not used in Targeted Mode.
+
+Display the SELinux context of a directory:
+
+```
+ls -dZ /var/www/html
+```
+
+This can alos be achieved using `getfattr`:
+
+```
+getfattr -n security.selinux /var/www/html
+```
 
 
 /etc/selinux/conf
@@ -214,18 +270,27 @@ semanage port -a -t ssh_port_t  -p tcp 2022
 
 ```
 firewall-cmd --list-all
+```
 
+```
 firewall-cmd --get-active-zones
 firewall-cmd --list-all-zones
 ```
+
 Add a service
-```firewall-cmd --add-service=http
+
+```
+firewall-cmd --add-service=http
+firewall-cmd --runtime-to-permanent
+```
 
 Restart firewalld on CentOS 7
 
 Add a service permanent
-```firewall-cmd --add-service=http --permanent
 
+```
+firewall-cmd --add-service=http --permanent
+```
 
 
 
@@ -236,4 +301,8 @@ hostnamectl
 ```
 
 
+Bash
+
+Esc .
+Get last argument
 
