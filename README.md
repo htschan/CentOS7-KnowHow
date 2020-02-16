@@ -6,6 +6,8 @@
 - [Systemd](#systemd)
 - [Firewall](#firewall)
 - [Varia](#varia)
+- [vi](#vi)
+
 
 
 # Installation on CentOS
@@ -133,6 +135,10 @@ Modes:
 - Enforcing (Rules are enforced, and violations are logged)
 - Permissive (violations logged)
 - Disabled (SELinux not operational and no logging)
+
+## References
+
+[SELinux User's Guide and Administration (RHEL 7)](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/selinux_users_and_administrators_guide/index)
 
 ## Tools
 
@@ -305,4 +311,57 @@ Bash
 
 Esc .
 Get last argument
+
+# vi
+
+## Navigation
+
+- Moving Cursor: up / down / left / right -> k / j / h / l
+- Moving between words: Move right one word / Move left one word: w / b
+- Start of file: `[[` or :1
+- End of file: `]]` or SHIFT + g
+- Page Up / Page Down -> CTRL + F / CTRL + B
+- Move to start of line: 0 (zero)
+- Move to end of line: $
+- Search for text forward: `/searchstring`
+- Remove highlighting: :nohl
+- Find and Replace: :s/s1/s2
+
+## Editing
+
+### Inserting
+
+- a - append current position
+- A - append end of line
+- i - insert current position
+- I - insert beginning of line
+- R - reeplace current position
+- o - start new line, below current position
+- O - start new line, above current position
+
+### Copy and Pasting
+
+- yy -copy current line to a buffer
+- p - paster line in buffer below current line
+- n p - n is a number, past n times
+
+### Undo
+
+- u - undo last edit
+
+### Deleting Lines
+
+- dd - delete on line
+- n d - delete n lines of text
+
+### Deleting Characters
+
+- x - delete character to the right
+- X - delete character to the left
+
+## Edit multiple Files
+
+vi -O file1 file2
+
+Switch between files: Ctrl + w Ctlr + w
 
