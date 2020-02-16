@@ -363,5 +363,53 @@ Get last argument
 
 vi -O file1 file2
 
-Switch between files: Ctrl + w Ctlr + w
+Switch between files: 
+- right window: Ctrl + w l 
+- left window: Ctlr + w h
+
+
+# Grep
+
+Search for text with regular Expressions.
+
+Search for lines beginning with a while ignoring case:
+
+```
+grep -i ^a file.tx
+```
+
+Search for lines beginning with a or b while ignoring case:
+
+```
+grep -i ^[ab] file.txt
+```
+
+Invert match:
+
+```
+grep -v -i ^[ab] file.txt
+```
+
+Multiple search patterns, bgin with a or b or end with inc:
+
+```
+grep -e ^[ab] -e inc$ file.txt
+```
+
+Context line control, output <num> trailing lines:
+
+```
+grep -A <num> <pattern> <file>
+```
+
+and output <num> lines before match:
+  
+```
+grep -B <num> <pattern> <file>
+```
+
+
+
+
+
 
