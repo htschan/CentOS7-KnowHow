@@ -129,6 +129,25 @@ Download a package without installing it:
 yum install --downloadonly --downloaddir=<directory> <package>
 ```
 
+## yumdownloader
+
+If downloading a installed package, "yumdownloader" is useful.
+
+Install the yum-utils package:
+
+```
+yum install yum-utils
+```
+
+Run the command followed by the desired package:
+
+```
+yumdownloader <package>
+```
+- The package is saved in the current working directly by default; use the --destdir option to specify an alternate location.
+- Be sure to add --resolve if you need to download dependencies.
+
+Refer also to [How to use yum to download a package without installing it](https://access.redhat.com/solutions/10154)
 
 # SELinux
 
