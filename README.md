@@ -308,10 +308,21 @@ hostnamectl
 ```
 
 
-Bash
+# Bash
 
 Esc .
 Get last argument
+
+## Calculator bc
+
+[bc Excamples](https://www.geeksforgeeks.org/bc-command-linux-examples/)
+
+Set number of decimal digits example:
+
+```
+echo "scale=4;10/3" | bc -l
+```
+
 
 # vi
 
