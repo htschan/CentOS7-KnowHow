@@ -2,6 +2,7 @@
 
 - [Installation on CentOS](#installation)
   - [Setup Firewall](#setup-firewall)
+- [yum](#yum)
 - [SELinux](#selinux)
 - [Systemd](#systemd)
 - [Firewall](#firewall)
@@ -119,6 +120,14 @@ https://www.ssllabs.com/ssltest/analyze.html?d=timepuncher.ch
 ### How to setup an NodeJS application
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-centos-7
+
+# Yum
+
+Download a package without installing it:
+
+```
+yum install --downloadonly --downloaddir=<directory> <package>
+```
 
 
 # SELinux
