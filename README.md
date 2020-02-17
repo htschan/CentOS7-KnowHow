@@ -154,6 +154,7 @@ Refer also to [How to use yum to download a package without installing it](https
 ## Overview
 
 DAC - Discretionary Access Control (Standard Linux with File System Permissions)
+
 MAC - Manadatory Access Control (SELinux, developed by NSA and Redhat)
 
 - AppArmor is another MAC System
