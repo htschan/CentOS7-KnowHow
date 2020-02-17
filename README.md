@@ -351,6 +351,15 @@ hostnamectl
 Esc .
 Get last argument
 
+## Files and directories
+
+List files only in directory
+
+```
+ls <directory> | grep -v '[/@=|]$' 
+```
+
+
 ## Calculator bc
 
 [bc Excamples](https://www.geeksforgeeks.org/bc-command-linux-examples/)
