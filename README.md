@@ -7,6 +7,7 @@
 - [Firewall](#firewall)
 - [Varia](#varia)
 - [vi](#vi)
+- [Grep](#grep)
 
 
 
@@ -318,6 +319,8 @@ Get last argument
 
 - Moving Cursor: up / down / left / right -> k / j / h / l
 - Moving between words: Move right one word / Move left one word: w / b
+- Moving pagewise: Move forward / Move backward: Ctrl + f / Ctrl + b
+- Moving halfpagewise: Move forward / Move backward: Ctrl + d / Ctrl + u
 - Start of file: `[[` or :1
 - End of file: `]]` or SHIFT + g
 - Page Up / Page Down -> CTRL + F / CTRL + B
