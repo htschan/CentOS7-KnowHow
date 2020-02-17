@@ -208,24 +208,28 @@ setenforce 0
 
 Permanently disable SE-Linux
 
-## Prevent Runtime Changes to Mode
-
-setsebool secure_mode_policyload on (-P)  # -P to persist
- 
-
-
 ```bash
 sed -i /etc/selinux/config -r -e 's/^SELINUX=.*/SELINUX=disabled/g'
 reboot
 ```
 
+## Prevent Runtime Changes to Mode
+
+setsebool secure_mode_policyload on (-P)  # -P to persist
+ 
+## Context (Label)
 
 View the SELinux context of an object
+
+```
 ls -Zd .
+```
 
 ## Booleans
 
+```
 getsebool -a  # list the transient booleans from the loaded policy in the memory
+```
 
 semanange boolean --list # list the transient and the persistent settings
 
@@ -268,18 +272,23 @@ This can alos be achieved using `getfattr`:
 getfattr -n security.selinux /var/www/html
 ```
 
+## Configuration files
 
 /etc/selinux/conf
 
 /etc/selinux/targeted/contexts/files
 
 getenforce
+
 setenforce 1
+
 sestatus
 
+```
 ls -Z <file>
 ps -Z -p $(pgrep sshd)
 id -Z
+```
 
 aussearch -m avc -ts recent
 
