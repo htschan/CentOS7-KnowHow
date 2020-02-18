@@ -348,8 +348,33 @@ hostnamectl
 
 # Bash
 
-Esc .
+Esc + .   or Alt + .
 Get last argument
+
+Ctrl + r to search for command
+
+Go back to last directory
+
+```
+cd -
+```
+
+## Job control
+
+While editing in vi, press Ctrl + z to send vi to the background.
+
+To get a list of jobs:
+
+```
+jobs
+```
+
+To resume a specific background job:
+
+```
+fg 3
+```
+
 
 ## Files and directories
 
@@ -359,6 +384,13 @@ List files only in directory
 ls <directory> | grep -v '[/@=|]$' 
 ```
 
+## Run command again as sudo
+
+Just execute last command as sudo:
+
+```
+sudo !!
+```
 
 ## Calculator bc
 
