@@ -271,6 +271,38 @@ This can alos be achieved using `getfattr`:
 ```
 getfattr -n security.selinux /var/www/html
 ```
+## Search for denials
+
+```
+ausearch -m avc -c httpd
+
+aureport -a
+```
+
+
+## Allowing access
+
+```
+audit2allow -a -M mycertwatch
+
+#******************** IMPORTANT ***********************
+#To make this policy package active, execute:
+
+semodule -i mycertwatch.pp
+```
+
+Produce human readable description:
+```
+audit2allow -w -a
+```
+
+SE Alert Message
+
+Alerts are logged in /var/log/messages. To view a description, execute:
+
+```
+sealert -l 84e0b04d-d0ad-4347-8317-22e74f6cd020
+````
 
 ## Configuration files
 
