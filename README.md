@@ -470,6 +470,13 @@ echo "scale=4;10/3" | bc -l
 - p - paster line in buffer below current line
 - n p - n is a number, past n times
 
+Multiple lines
+
+- v to start selecting
+- y to copy
+- d to cut
+- p to paste
+
 ### Undo
 
 - u - undo last edit
