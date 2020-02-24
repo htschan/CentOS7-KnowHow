@@ -8,7 +8,7 @@
 - [Firewall](#firewall)
 - [Varia](#varia)
 - [vi](#vi)
-- [Grep](#grep)
+- [grep](#grep)
 - [sed](#sed)
 - [awk](#awk)
 - [join](#join)
@@ -503,7 +503,9 @@ Switch between files:
 - left window: Ctlr + w h
 
 
-# Grep
+# grep
+
+*egrep is obsolete. Use grep -E instead.*
 
 Search for text with regular Expressions.
 
