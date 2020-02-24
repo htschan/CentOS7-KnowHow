@@ -42,6 +42,7 @@ PasswordAuthentication no
 UsePAM no
 [...]
 ```
+
 `systemctl reload sshd`
 
 
@@ -234,11 +235,16 @@ ls -Zd .
 getsebool -a  # list the transient booleans from the loaded policy in the memory
 ```
 
+```
 semanange boolean --list # list the transient and the persistent settings
-
+```
+```
 semanage boolean -l | grep secure_mode_policyload
+```
 
+```
 semanage secure_mode_policyload on # set the boolean in memory
+```
 
 ## Type Enforcement
 
@@ -325,6 +331,7 @@ ps -Z -p $(pgrep sshd)
 id -Z
 ```
 
+```
 aussearch -m avc -ts recent
 
 restorecon /etc/shadow
@@ -342,6 +349,7 @@ setsebool -P sdfsdf on (permanent setting)
 semanage port -l
 
 semanage port -a -t ssh_port_t  -p tcp 2022
+```
 
 # Systemd
 
@@ -389,10 +397,10 @@ find /path/to/uploads -maxdepth 1 -type f -not -name 't_*'
 
 # Bash
 
-Esc + .   or Alt + .
+Esc + `.`   or Alt + `.`
 Get last argument
 
-Ctrl + r to search for command
+Ctrl + `r` to search for command
 
 Go back to last directory
 
@@ -452,14 +460,14 @@ echo "scale=4;10/3" | bc -l
 - Moving between words: Move right one word / Move left one word: w / b
 - Moving pagewise: Move forward / Move backward: Ctrl + f / Ctrl + b
 - Moving halfpagewise: Move forward / Move backward: Ctrl + d / Ctrl + u
-- Start of file: `[[` or :1
-- End of file: `]]` or SHIFT + g
-- Page Up / Page Down -> CTRL + F / CTRL + B
-- Move to start of line: 0 (zero)
-- Move to end of line: $
+- Start of file: `[[` or `:1`
+- End of file: `]]` or SHIFT + `g`
+- Page Up / Page Down -> CTRL + `F` / CTRL + `B`
+- Move to start of line: `0` (zero)
+- Move to end of line: `$`
 - Search for text forward: `/searchstring`
-- Remove highlighting: :nohl
-- Find and Replace: :s/s1/s2
+- Remove highlighting: `:nohl`
+- Find and Replace: `:s/s1/s2`
 
 ## Editing
 
