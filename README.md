@@ -9,6 +9,9 @@
 - [Varia](#varia)
 - [vi](#vi)
 - [Grep](#grep)
+- [sed](#sed)
+- [awk](#awk)
+- [join](#join)
 
 
 
@@ -539,6 +542,14 @@ and output `<num>` lines before match:
 ```
 grep -B <num> <pattern> <file>
 ```
+
+# sed
+
+
+# awk
+
+
+# join
 
 
 
