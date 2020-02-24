@@ -380,6 +380,12 @@ firewall-cmd --add-service=http --permanent
 hostnamectl
 ```
 
+Find only files of type file, but not file with pattern
+
+```
+find /path/to/uploads -maxdepth 1 -type f -not -name 't_*'
+```
+
 
 # Bash
 
