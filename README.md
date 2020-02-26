@@ -565,7 +565,7 @@ grep -B <num> <pattern> <file>
 # awk
 
 
-[GNU awk](https://www.gnu.org/software/gawk/manual/gawk.html#Dupword-Program)
+[GNU awk](https://www.gnu.org/software/gawk/manual)
 
 # join
 
