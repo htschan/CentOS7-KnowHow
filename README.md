@@ -388,11 +388,6 @@ firewall-cmd --add-service=http --permanent
 hostnamectl
 ```
 
-Find only files of type file, but not file with pattern
-
-```
-find /path/to/uploads -maxdepth 1 -type f -not -name 't_*'
-```
 
 
 # Bash
@@ -432,6 +427,13 @@ List files only in directory
 ```
 ls <directory> | grep -v '[/@=|]$' 
 ```
+
+Find only files of type file, but not file with pattern
+
+```
+find /path/to/uploads -maxdepth 1 -type f -not -name 't_*'
+```
+
 
 ## Run command again as sudo
 
@@ -564,6 +566,37 @@ grep -B <num> <pattern> <file>
 
 # awk
 
+Example bash script using awk with using user defined functions, bash variable as parameter, join, built-in string and time functions:
+
+```bash
+!/bin/bash
+
+_offset=94
+_infile=${1}
+_outfile=${2}
+_tf1=$(mktemp)
+_tf2=$(mktemp)
+
+echo "temp1: ${_tf1} temp2: ${_tf2}"
+awk '$7 ~ /^perftest*/ { print $1, $7 }' ${_infile} > ${_tf1}
+awk '$7 ~ /^perftest*/ { print $1, $7 }' ${_outfile} > ${_tf2}
+
+join -a 1 -j 2 -o 1.1,2.1,1.2,2.2 <(sort -k 2 ${_tf1}) <(sort -k 2 ${_tf2}) | awk -v offset=${_offset} '
+# get the seconds from timestamp string like "2020-02-21T10:39:28.823517+01:00"
+function getSeconds(tstring,    seconds)
+{
+   gsub("-", " ", tstring);
+   gsub(":", " ", tstring); 
+   gsub("T", " ", tstring); 
+   gsub("+01 00", " ", tstring);
+   seconds = mktime(tstring);
+   return seconds;
+}
+{  
+   $2 = getSeconds($2) - getSeconds($1) + offset;
+   print $0  
+}'
+```                                   
 
 [GNU awk](https://www.gnu.org/software/gawk/manual/gawk.html)
 
