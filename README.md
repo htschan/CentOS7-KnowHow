@@ -6,6 +6,7 @@
 - [SELinux](#selinux)
 - [Systemd](#systemd)
 - [Firewall](#firewall)
+- [Samba](#samba)
 - [Varia](#varia)
 - [vi](#vi)
 - [grep](#grep)
@@ -353,6 +354,13 @@ semanage port -a -t ssh_port_t  -p tcp 2022
 
 # Systemd
 
+## journalctl
+
+Show service logs and follow:
+
+`journalctl -fu <servicename>`
+
+
 
 # Firewall
 
@@ -380,6 +388,30 @@ Add a service permanent
 firewall-cmd --add-service=http --permanent
 ```
 
+# Samba
+
+Set password of Samba user:
+
+`smbpasswd <user>`
+
+Edit Samba Config:
+
+`vi /etc/samba/smb.conf`
+
+Test Samba Config:
+
+`testparam`
+
+Local testing:
+
+`smbclient -L localhost %U` # list all shares
+
+`smbclient //localhost/<sharename>`    # test a local share
+
+
+Make a client mount:
+
+`//<server>/<share> /mnt/<mountdirectory> ....
 
 
 # Varia
