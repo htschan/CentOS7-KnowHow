@@ -569,7 +569,7 @@ grep -B <num> <pattern> <file>
 Example bash script using awk with using user defined functions, bash variable as parameter, join, built-in string and time functions:
 
 ```bash
-!/bin/bash
+#!/bin/bash
 
 _offset=94
 _infile=${1}
