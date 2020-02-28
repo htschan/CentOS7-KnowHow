@@ -2,5 +2,5 @@
 
 
 
-[View the Wiki]()
+[View the Wiki](https://github.com/htschan/KnowHow/wiki)
 
