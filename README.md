@@ -1,12 +1,8 @@
-# Know Collection
+# Know How Collection
 
 
-Linux
-Centos
-git
-Ubuntu
 
 - [Linux](Linux.md)
-- [CentOS](CentOS.md)
+- [CentOS](CentOS7.md)
 - [git](Git.md)
-- [Ubuntu](#systemd)
+- [Ubuntu](Ubuntu.md)
